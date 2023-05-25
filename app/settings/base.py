@@ -45,7 +45,13 @@ DATABASES = {
         'PASSWORD': 'DatabaseUserpassword',
         'HOST': 'localhost',
         'PORT': '5432',
+        'DEFAULT_AUTO_FIELD': 'django.db.models.BigAutoField',
         # "ENGINE": "django.db.backends.sqlite3",
         # "NAME": "app/data/main",
     }
 }
+
+# DEFAULT_AUTO_FIELD = {
+#     "django.db.models.AutoField",
+#     "django.db.models.BigAutoField",
+# }

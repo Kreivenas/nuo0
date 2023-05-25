@@ -10,6 +10,9 @@ class Category(models.Model):
     name = models.CharField(max_length=200)
     active = models.BooleanField(default=True)
 
+    def __str__(self):
+        return "Category={}".format(self.name)
+
 
 class Customer(models.Model):
     name = models.CharField(max_length=1024)
@@ -17,3 +20,7 @@ class Customer(models.Model):
     phone = models.CharField(max_length=15)
     country = models.CharField(max_length=2, choices=COUNTRES)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return f"Customer name={self.name}", f"country={self.country}"
+
