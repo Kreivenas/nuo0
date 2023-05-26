@@ -13,9 +13,11 @@ class Category(models.Model):
     name = models.CharField(max_length=200)
     active = models.BooleanField(default=True)
 
-    # def __str__(self):
-    #     return "Category={}".format(self.name)
+    # def __abs__(self):
+    #     return "Category {}".format(self.name)
 
+    def __str__(self):
+       return "Category {}".format(self.name)
 
 class Customer(models.Model):
     name = models.CharField(max_length=1024)
@@ -24,8 +26,9 @@ class Customer(models.Model):
     country = models.CharField(max_length=2, choices=COUNTRES)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
 
-    # def __str__(self):
-    #     return f"Customer name={self.name}", f"country={self.country}"
+    def __str__(self):
+      return "Customer {}".format(self.name)
+
 
 # class Event(models.Model):
 #     comment = models.TextField()
@@ -41,14 +44,15 @@ class Event(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
     created = models.DateField(auto_now_add=True)
 
-
-    # def __str__(self):
-
+    def __str__(self):
+      return "Event {}".format(self.customer)
+    # def __abs__(self):
+    #     return  f"user={self.user}, customer={self.customer}, crated={self.created}"
         # return "Event By: {}, customer: {}, Time: {}".format(self.user, self.customer, self.created)
 
 
 class MyModel(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=10000)
 
     def __str__(self):
         return self.name
