@@ -16,6 +16,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
 class CustomerSerializer(serializers.ModelSerializer):
     category = serializers.PrimaryKeyRelatedField(queryset=Category.objects.all())
+    event_set = EventSerialize(many=True)
     class Meta:
         model = Customer
         fields = "__all__"

@@ -1,6 +1,7 @@
 from rest_framework import viewsets, authentication, permissions
 from .serializers import CustomerSerializer, EventSerialize
 from .models import Customer, Event
+from .permissions import IsOwnerOrReadOnly
 
 class Customerlist(viewsets.ModelViewSet):
     serializer_class = CustomerSerializer
@@ -23,7 +24,7 @@ class EventList(viewsets.ModelViewSet):
     ]
 
     permission_classes = [
-        permissions.DjangoModelPermissions,
+        IsOwnerOrReadOnly,
     ]
 
     serializer_class = EventSerialize

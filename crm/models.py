@@ -42,7 +42,7 @@ class Event(models.Model):
     comment = models.TextField()
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True)
-    created = models.DateField(auto_now_add=True)
+    created = models.DateField(auto_now_add=False)
 
     def __str__(self):
       return "Event {}".format(self.customer)
